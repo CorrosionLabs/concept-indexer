@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/concept-indexer-header.jpg" alt="Concept Indexer" width="100%">
+</p>
+
 # Concept Indexer
 
 Mechanical concept indexer for Obsidian.
