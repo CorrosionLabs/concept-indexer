@@ -107,6 +107,15 @@ Concept Indexer/
 
 Both can be changed in the plugin settings.
 
+## AI-friendly workflow
+
+Concept Indexer can also help prepare your vault for later AI-assisted analysis.
+
+By creating master pages and global concept indexes, it groups references to the same topic in a predictable structure. This allows AI tools, local models, scripts, or external processing pipelines to work from curated thematic entry points instead of repeatedly scanning the entire vault.
+
+In large vaults, this can reduce the amount of content that needs to be processed and make topic-based analysis more efficient, focused, and reproducible.
+
+
 ## Settings
 
 You can configure:
