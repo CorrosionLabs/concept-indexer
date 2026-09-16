@@ -1474,9 +1474,7 @@ var ConceptIndexerSettingTab = class extends import_obsidian.PluginSettingTab {
   display() {
     const { containerEl } = this;
     containerEl.empty();
-    containerEl.createEl("h2", {
-      text: this.plugin.t("settingsTitle")
-    });
+    new import_obsidian.Setting(containerEl).setName(this.plugin.t("settingsTitle")).setHeading();
     const settings = this.plugin.getSettings();
     new import_obsidian.Setting(containerEl).setName(this.plugin.t("language")).setDesc(this.plugin.t("languageDesc")).addDropdown((dropdown) => {
       dropdown.addOption("en", "English").addOption("es", "Espa\xF1ol").addOption("fr", "Fran\xE7ais").addOption("de", "Deutsch").addOption("pt-BR", "Portugu\xEAs (Brasil)").addOption("pl", "Polski").addOption("ja", "\u65E5\u672C\u8A9E").addOption("zh-CN", "\u7B80\u4F53\u4E2D\u6587").setValue(settings.language).onChange(async (value) => {

@@ -1900,9 +1900,9 @@ class ConceptIndexerSettingTab extends PluginSettingTab {
 		const { containerEl } = this;
 		containerEl.empty();
 
-		containerEl.createEl("h2", {
-			text: this.plugin.t("settingsTitle")
-		});
+		new Setting(containerEl)
+			.setName(this.plugin.t("settingsTitle"))
+			.setHeading();
 
 		const settings =
 			this.plugin.getSettings();
