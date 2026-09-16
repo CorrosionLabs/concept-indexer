@@ -865,20 +865,15 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
       const row = container.createDiv({
         cls: "concept-indexer-folder-row"
       });
-      row.style.display = "flex";
-      row.style.alignItems = "center";
-      row.style.gap = "6px";
-      row.style.paddingLeft = `${depth * 18}px`;
-      row.style.minHeight = "30px";
       const hasChildren = node.children.length > 0;
       const expander = row.createSpan({
+        cls: "concept-indexer-folder-expander",
         text: hasChildren ? this.expandedFolders.has(node.path) ? "\u25BE" : "\u25B8" : ""
       });
-      expander.style.display = "inline-block";
-      expander.style.width = "16px";
-      expander.style.cursor = hasChildren ? "pointer" : "default";
-      expander.style.userSelect = "none";
       if (hasChildren) {
+        expander.addClass(
+          "concept-indexer-folder-expander-clickable"
+        );
         expander.addEventListener("click", () => {
           if (this.expandedFolders.has(node.path)) {
             this.expandedFolders.delete(node.path);
@@ -905,10 +900,9 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
         );
       });
       const label = row.createSpan({
+        cls: "concept-indexer-folder-label",
         text: node.name
       });
-      label.style.cursor = "pointer";
-      label.style.flex = "1";
       label.addEventListener("click", () => {
         if (this.scopeAll || selectedByAncestor) {
           return;
@@ -919,8 +913,11 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
         );
       });
       if (hasChildren && this.expandedFolders.has(node.path)) {
+        const children = container.createDiv({
+          cls: "concept-indexer-folder-children"
+        });
         this.renderFolderTree(
-          container,
+          children,
           node.children,
           depth + 1
         );
@@ -1096,24 +1093,21 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
   render() {
     const container = this.containerEl.children[1];
     container.empty();
-    container.style.padding = "8px 10px";
-    const title = container.createEl("h3", {
+    container.addClass("concept-indexer-container");
+    container.createEl("h3", {
+      cls: "concept-indexer-title",
       text: this.plugin.t("title")
     });
-    title.style.margin = "0 0 8px 0";
     let conceptInput = this.concept;
-    const conceptRow = container.createDiv();
-    conceptRow.style.display = "flex";
-    conceptRow.style.gap = "6px";
-    conceptRow.style.alignItems = "center";
-    conceptRow.style.marginBottom = "8px";
+    const conceptRow = container.createDiv({
+      cls: "concept-indexer-concept-row"
+    });
     const input = conceptRow.createEl("input", {
+      cls: "concept-indexer-concept-input",
       type: "text",
       placeholder: this.plugin.t("exampleConcept")
     });
     input.value = this.concept;
-    input.style.flex = "1";
-    input.style.minWidth = "0";
     input.addEventListener("input", () => {
       conceptInput = input.value.trim();
       this.concept = input.value;
@@ -1153,34 +1147,30 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       );
     });
     if (this.isSearching) {
-      const box = container.createDiv();
-      box.style.marginBottom = "8px";
-      box.style.fontSize = "0.9em";
+      const box = container.createDiv({
+        cls: "concept-indexer-search-progress-box"
+      });
       box.createSpan({
         text: `${this.searchPhase} ` + (this.searchTotal > 0 ? `${this.searchCurrent}/${this.searchTotal}` : "")
       });
       if (this.searchTotal > 0) {
-        const progress = box.createEl("progress");
+        const progress = box.createEl("progress", {
+          cls: "concept-indexer-progress"
+        });
         progress.max = this.searchTotal;
         progress.value = this.searchCurrent;
-        progress.style.width = "100%";
-        progress.style.height = "8px";
-        progress.style.display = "block";
-        progress.style.marginTop = "4px";
       }
     }
-    const scopeHeader = container.createDiv();
-    scopeHeader.style.display = "flex";
-    scopeHeader.style.alignItems = "center";
-    scopeHeader.style.justifyContent = "space-between";
-    scopeHeader.style.margin = "4px 0";
+    const scopeHeader = container.createDiv({
+      cls: "concept-indexer-scope-header"
+    });
     scopeHeader.createEl("strong", {
       text: this.plugin.t("scope")
     });
     const scopeToggle = scopeHeader.createEl("button", {
       text: this.scopeCollapsed ? "\u25B8" : "\u25BE"
     });
-    scopeToggle.style.padding = "2px 8px";
+    scopeToggle.addClass("concept-indexer-scope-toggle");
     scopeToggle.title = this.plugin.t("collapseExpandScope");
     scopeToggle.addEventListener("click", () => {
       this.scopeCollapsed = !this.scopeCollapsed;
@@ -1188,11 +1178,9 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       this.render();
     });
     if (!this.scopeCollapsed) {
-      const allVaultRow = container.createDiv();
-      allVaultRow.style.display = "flex";
-      allVaultRow.style.alignItems = "center";
-      allVaultRow.style.gap = "6px";
-      allVaultRow.style.margin = "2px 0 4px 0";
+      const allVaultRow = container.createDiv({
+        cls: "concept-indexer-all-vault-row"
+      });
       const allVaultCheckbox = allVaultRow.createEl("input", {
         type: "checkbox"
       });
@@ -1215,18 +1203,14 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       const folderTree = container.createDiv({
         cls: "concept-indexer-folder-tree"
       });
-      folderTree.style.marginBottom = "6px";
       this.renderFolderTree(
         folderTree,
         this.buildFolderTree()
       );
       if (!this.scopeAll && this.selectedFolders.size > 1) {
-        const modeRow = container.createDiv();
-        modeRow.style.display = "flex";
-        modeRow.style.alignItems = "center";
-        modeRow.style.gap = "12px";
-        modeRow.style.margin = "4px 0 8px 0";
-        modeRow.style.fontSize = "0.9em";
+        const modeRow = container.createDiv({
+          cls: "concept-indexer-mode-row"
+        });
         modeRow.createSpan({
           text: `${this.plugin.t("processing")}:`
         });
@@ -1272,17 +1256,13 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
         );
       }
     }
-    const optionsHeader = container.createEl("strong", {
+    container.createEl("strong", {
+      cls: "concept-indexer-options-header",
       text: this.plugin.t("options")
     });
-    optionsHeader.style.display = "block";
-    optionsHeader.style.margin = "6px 0 4px 0";
-    const optionsRow = container.createDiv();
-    optionsRow.style.display = "flex";
-    optionsRow.style.flexWrap = "wrap";
-    optionsRow.style.gap = "10px";
-    optionsRow.style.marginBottom = "8px";
-    optionsRow.style.fontSize = "0.9em";
+    const optionsRow = container.createDiv({
+      cls: "concept-indexer-options-row"
+    });
     const addOption = (labelText, value, onChange) => {
       const label = optionsRow.createEl("label");
       const checkbox = label.createEl("input", {
@@ -1326,30 +1306,29 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       }
     );
     if (this.isProcessing) {
-      const box = container.createDiv();
-      box.style.margin = "6px 0 8px 0";
-      box.style.fontSize = "0.9em";
+      const box = container.createDiv({
+        cls: "concept-indexer-processing-progress-box"
+      });
       box.createSpan({
         text: `${this.progressPhase} ` + (this.progressTotal > 0 ? `${this.progressCurrent}/${this.progressTotal}` : "")
       });
       if (this.progressTotal > 0) {
-        const progress = box.createEl("progress");
+        const progress = box.createEl("progress", {
+          cls: "concept-indexer-progress"
+        });
         progress.max = this.progressTotal;
         progress.value = this.progressCurrent;
-        progress.style.width = "100%";
-        progress.style.height = "8px";
-        progress.style.display = "block";
-        progress.style.marginTop = "4px";
       }
     }
     if (this.groups.length > 0) {
-      const topProcessRow = container.createDiv();
-      topProcessRow.style.marginBottom = "8px";
+      const topProcessRow = container.createDiv({
+        cls: "concept-indexer-top-process-row"
+      });
       const button = topProcessRow.createEl("button", {
         text: this.isProcessing ? this.plugin.t("processingButton") : this.plugin.t("process")
       });
       button.addClass("mod-cta");
-      button.style.width = "100%";
+      button.addClass("concept-indexer-full-width-button");
       button.disabled = this.isProcessing || this.isSearching;
       button.addEventListener(
         "click",
@@ -1361,14 +1340,13 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       );
     }
     if (this.groups.length > 0) {
-      const accessRow = container.createDiv();
-      accessRow.style.display = "flex";
-      accessRow.style.gap = "6px";
-      accessRow.style.marginBottom = "8px";
+      const accessRow = container.createDiv({
+        cls: "concept-indexer-access-row"
+      });
       const masterButton = accessRow.createEl("button", {
+        cls: "concept-indexer-access-button",
         text: this.plugin.t("openMaster")
       });
-      masterButton.style.flex = "1";
       masterButton.addEventListener(
         "click",
         () => {
@@ -1379,9 +1357,9 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
         }
       );
       const indexButton = accessRow.createEl("button", {
+        cls: "concept-indexer-access-button",
         text: this.plugin.t("openIndex")
       });
-      indexButton.style.flex = "1";
       indexButton.addEventListener(
         "click",
         () => {
@@ -1393,11 +1371,10 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       );
     }
     if (this.groups.length === 0) {
-      const ready = container.createEl("p", {
+      container.createEl("p", {
+        cls: "concept-indexer-ready",
         text: this.plugin.t("ready")
       });
-      ready.style.margin = "6px 0";
-      ready.style.opacity = "0.8";
       return;
     }
     const totalNotes = new Set(
@@ -1414,41 +1391,41 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       ),
       0
     );
-    const resultHeader = container.createDiv();
-    resultHeader.style.margin = "6px 0 4px 0";
+    const resultHeader = container.createDiv({
+      cls: "concept-indexer-result-header"
+    });
     resultHeader.createEl("strong", {
       text: this.concept
     });
     resultHeader.createEl("div", {
+      cls: "concept-indexer-result-summary",
       text: `${totalNotes} notes \xB7 ${totalOccurrences} occurrences`
-    }).style.fontSize = "0.9em";
+    });
     for (const group of this.groups) {
       if (this.processingMode === "separate" && this.groups.length > 1) {
         const groupOccurrences = group.results.reduce(
           (sum, item) => sum + item.occurrences,
           0
         );
-        const groupTitle = container.createEl("div", {
+        container.createEl("div", {
+          cls: "concept-indexer-group-title",
           text: `${group.name} \xB7 ${group.results.length} notes \xB7 ${groupOccurrences} occurrences`
         });
-        groupTitle.style.fontWeight = "600";
-        groupTitle.style.margin = "6px 0 2px 0";
-        groupTitle.style.fontSize = "0.9em";
       }
       if (group.results.length === 0) {
-        const empty = container.createEl("p", {
+        container.createEl("p", {
+          cls: "concept-indexer-empty",
           text: this.plugin.t("noMatches")
         });
-        empty.style.margin = "4px 0";
         continue;
       }
-      const list = container.createEl("ul");
-      list.style.margin = "2px 0 6px 0";
-      list.style.paddingLeft = "18px";
+      const list = container.createEl("ul", {
+        cls: "concept-indexer-result-list"
+      });
       for (const result of group.results) {
-        const item = list.createEl("li");
-        item.style.margin = "1px 0";
-        item.style.lineHeight = "1.25";
+        const item = list.createEl("li", {
+          cls: "concept-indexer-result-item"
+        });
         const link = item.createEl("a", {
           text: result.file.path,
           href: "#"
@@ -1467,8 +1444,9 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
         );
       }
     }
-    const bottomProcessRow = container.createDiv();
-    bottomProcessRow.style.marginTop = "8px";
+    const bottomProcessRow = container.createDiv({
+      cls: "concept-indexer-bottom-process-row"
+    });
     const bottomButton = bottomProcessRow.createEl(
       "button",
       {
@@ -1476,7 +1454,7 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       }
     );
     bottomButton.addClass("mod-cta");
-    bottomButton.style.width = "100%";
+    bottomButton.addClass("concept-indexer-full-width-button");
     bottomButton.disabled = this.isProcessing || this.isSearching;
     bottomButton.addEventListener(
       "click",

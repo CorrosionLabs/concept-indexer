@@ -1,0 +1,154 @@
+.concept-indexer-container {
+	padding: 8px 10px;
+}
+
+.concept-indexer-title {
+	margin: 0 0 8px 0;
+}
+
+.concept-indexer-concept-row,
+.concept-indexer-scope-header,
+.concept-indexer-all-vault-row,
+.concept-indexer-mode-row,
+.concept-indexer-access-row,
+.concept-indexer-folder-row {
+	display: flex;
+	align-items: center;
+}
+
+.concept-indexer-concept-row,
+.concept-indexer-all-vault-row,
+.concept-indexer-access-row,
+.concept-indexer-folder-row {
+	gap: 6px;
+}
+
+.concept-indexer-concept-row,
+.concept-indexer-search-progress-box,
+.concept-indexer-options-row,
+.concept-indexer-top-process-row,
+.concept-indexer-access-row {
+	margin-bottom: 8px;
+}
+
+.concept-indexer-concept-input,
+.concept-indexer-access-button {
+	flex: 1;
+}
+
+.concept-indexer-concept-input {
+	min-width: 0;
+}
+
+.concept-indexer-search-progress-box,
+.concept-indexer-mode-row,
+.concept-indexer-options-row,
+.concept-indexer-processing-progress-box,
+.concept-indexer-result-summary,
+.concept-indexer-group-title {
+	font-size: 0.9em;
+}
+
+.concept-indexer-progress,
+.concept-indexer-full-width-button {
+	width: 100%;
+}
+
+.concept-indexer-progress {
+	display: block;
+	height: 8px;
+	margin-top: 4px;
+}
+
+.concept-indexer-scope-header {
+	justify-content: space-between;
+	margin: 4px 0;
+}
+
+.concept-indexer-scope-toggle {
+	padding: 2px 8px;
+}
+
+.concept-indexer-all-vault-row {
+	margin: 2px 0 4px 0;
+}
+
+.concept-indexer-folder-tree {
+	margin-bottom: 6px;
+}
+
+.concept-indexer-folder-row {
+	min-height: 30px;
+}
+
+.concept-indexer-folder-children {
+	padding-left: 18px;
+}
+
+.concept-indexer-folder-expander {
+	display: inline-block;
+	width: 16px;
+	cursor: default;
+	user-select: none;
+}
+
+.concept-indexer-folder-expander-clickable,
+.concept-indexer-folder-label {
+	cursor: pointer;
+}
+
+.concept-indexer-folder-label {
+	flex: 1;
+}
+
+.concept-indexer-mode-row {
+	gap: 12px;
+	margin: 4px 0 8px 0;
+}
+
+.concept-indexer-options-header {
+	display: block;
+	margin: 6px 0 4px 0;
+}
+
+.concept-indexer-options-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.concept-indexer-processing-progress-box {
+	margin: 6px 0 8px 0;
+}
+
+.concept-indexer-ready {
+	margin: 6px 0;
+	opacity: 0.8;
+}
+
+.concept-indexer-result-header {
+	margin: 6px 0 4px 0;
+}
+
+.concept-indexer-group-title {
+	margin: 6px 0 2px 0;
+	font-weight: 600;
+}
+
+.concept-indexer-empty {
+	margin: 4px 0;
+}
+
+.concept-indexer-result-list {
+	margin: 2px 0 6px 0;
+	padding-left: 18px;
+}
+
+.concept-indexer-result-item {
+	margin: 1px 0;
+	line-height: 1.25;
+}
+
+.concept-indexer-bottom-process-row {
+	margin-top: 8px;
+}
