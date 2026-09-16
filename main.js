@@ -1397,7 +1397,7 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
     resultHeader.createEl("strong", {
       text: this.concept
     });
-    resultHeader.createEl("div", {
+    resultHeader.createDiv({
       cls: "concept-indexer-result-summary",
       text: `${totalNotes} notes \xB7 ${totalOccurrences} occurrences`
     });
@@ -1407,7 +1407,7 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
           (sum, item) => sum + item.occurrences,
           0
         );
-        container.createEl("div", {
+        container.createDiv({
           cls: "concept-indexer-group-title",
           text: `${group.name} \xB7 ${group.results.length} notes \xB7 ${groupOccurrences} occurrences`
         });
@@ -1544,7 +1544,6 @@ var ConceptIndexerPlugin = class extends import_obsidian.Plugin {
     );
   }
   async onload() {
-    console.log("Concept Indexer loaded");
     await this.loadPluginData();
     this.captureActiveMarkdownView();
     this.registerEvent(
@@ -1563,7 +1562,7 @@ var ConceptIndexerPlugin = class extends import_obsidian.Plugin {
       )
     );
     this.addCommand({
-      id: "open-concept-indexer",
+      id: "open",
       name: this.t("openCommand"),
       callback: () => {
         void this.activateView();
@@ -1697,7 +1696,7 @@ var ConceptIndexerPlugin = class extends import_obsidian.Plugin {
       type: VIEW_TYPE_CONCEPT_INDEXER,
       active: true
     });
-    this.app.workspace.revealLeaf(leaf);
+    await this.app.workspace.revealLeaf(leaf);
   }
   getOrCreateRightLeaf() {
     const existingLeaves = this.app.workspace.getLeavesOfType(
@@ -2484,6 +2483,5 @@ ${sections.join("\n\n") || "_No references found._"}
     return (_b = (_a = text.match(regex)) == null ? void 0 : _a.length) != null ? _b : 0;
   }
   onunload() {
-    console.log("Concept Indexer unloaded");
   }
 };

@@ -1773,7 +1773,7 @@ class ConceptIndexerView extends ItemView {
 			text: this.concept
 		});
 
-		resultHeader.createEl("div", {
+		resultHeader.createDiv({
 			cls: "concept-indexer-result-summary",
 			text:
 				`${totalNotes} notes · ` +
@@ -1794,7 +1794,7 @@ class ConceptIndexerView extends ItemView {
 						0
 					);
 
-				container.createEl("div", {
+				container.createDiv({
 					cls: "concept-indexer-group-title",
 					text:
 						`${group.name} · ` +
@@ -2023,8 +2023,6 @@ export default class ConceptIndexerPlugin extends Plugin {
 	);
 
 	async onload() {
-		console.log("Concept Indexer loaded");
-
 		await this.loadPluginData();
 		this.captureActiveMarkdownView();
 
@@ -2047,7 +2045,7 @@ export default class ConceptIndexerPlugin extends Plugin {
 		);
 
 		this.addCommand({
-			id: "open-concept-indexer",
+			id: "open",
 			name: this.t("openCommand"),
 			callback: () => {
 				void this.activateView();
@@ -2083,7 +2081,7 @@ export default class ConceptIndexerPlugin extends Plugin {
 				...DEFAULT_DATA.settings,
 				...(loaded?.settings ?? {}),
 				language:
-					(loaded?.settings?.language as LanguageCode | undefined) ??
+					loaded?.settings?.language ??
 					DEFAULT_DATA.settings.language,
 				ignoredFolders:
 					loaded?.settings?.ignoredFolders ??
@@ -2248,7 +2246,7 @@ export default class ConceptIndexerPlugin extends Plugin {
 			active: true
 		});
 
-		this.app.workspace.revealLeaf(leaf);
+		await this.app.workspace.revealLeaf(leaf);
 	}
 
 	private getOrCreateRightLeaf(): WorkspaceLeaf {
@@ -3537,6 +3535,5 @@ export default class ConceptIndexerPlugin extends Plugin {
 	}
 
 	onunload() {
-		console.log("Concept Indexer unloaded");
 	}
 }
