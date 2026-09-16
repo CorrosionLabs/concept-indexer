@@ -3,7 +3,7 @@
   "name": "Concept Indexer",
   "version": "1.0.0",
   "minAppVersion": "1.5.0",
-  "description": "Mechanical concept indexer for Obsidian with wikilinks, master pages, and global indexes.",
+  "description": "Mechanical concept indexer with wikilinks, master pages, and global indexes.",
   "author": "Corrosion Labs",
   "isDesktopOnly": false
 }
