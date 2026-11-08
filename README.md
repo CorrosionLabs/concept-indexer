@@ -8,6 +8,12 @@ Mechanical concept indexer for Obsidian.
 
 Concept Indexer searches for a concept across your Markdown vault, creates wikilinks, generates master pages with contextual references, and maintains a global concept index.
 
+## Documentation
+
+**[User Manual (English / Español)](https://corrosionlabs.github.io/documentation/concept-indexer-v2/)**
+
+Complete illustrated guide to settings, concept indexing, cross-references, and maintenance.
+
 ## Features
 
 - Search concepts across the entire vault or selected folders
