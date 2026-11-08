@@ -8,11 +8,45 @@ Mechanical concept indexer for Obsidian.
 
 Concept Indexer searches for a concept across your Markdown vault, creates wikilinks, generates master pages with contextual references, and maintains a global concept index.
 
-## Documentation
+## What's New in v2.0
 
-**[User Manual (English / Español)](https://corrosionlabs.github.io/documentation/concept-indexer-v2/)**
+Concept Indexer v2.0 introduces cross-reference analysis, safer document processing, and a complete maintenance system for managing changes to your Obsidian vault.
 
-Complete illustrated guide to settings, concept indexing, cross-references, and maintenance.
+### Cross-Reference Analysis
+
+- Discover relationships between two or more indexed concepts.
+- Identify documents and content blocks shared by multiple master pages.
+- Generate dedicated cross-reference indexes with direct links to related content.
+- Automatically link cross-reference indexes from their associated master pages.
+
+### Advanced Indexing
+
+- Choose between **Expand** and **Synchronize** modes when updating master pages.
+- Process multiple folders together or independently.
+- Create and maintain separate master pages and global indexes for different scopes.
+- Preserve protected Markdown content, including code blocks and existing links.
+
+### Change Tracking and Safe Cleanup
+
+- Track wikilinks, hashtags, and block identifiers created or used by the plugin.
+- Analyze recorded modifications and identify shared or protected references.
+- Preview cleanup operations before modifying documents.
+- Remove plugin-generated elements safely while preserving existing and shared content.
+- Maintain backups of the change registry during cleanup.
+
+### Improved User Experience
+
+- Multilingual interface supporting eight languages.
+- Persistent search scope and processing preferences.
+- Progress indicators for searches and processing operations.
+- Detailed processing summaries.
+- Direct access to the online user manual from plugin settings.
+
+### Documentation
+
+A new illustrated user manual covers all major features, configuration options, indexing workflows, cross-references, and maintenance tools.
+
+**[Read the User Manual (English / Español)](https://corrosionlabs.github.io/documentation/concept-indexer-v2/)**
 
 ## Features
 

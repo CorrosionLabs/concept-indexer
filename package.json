@@ -1,6 +1,6 @@
 {
   "name": "concept-indexer",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Mechanical concept indexer for Obsidian with wikilinks, master pages, and global indexes.",
   "author": "Corrosion Labs",
   "main": "main.js",
