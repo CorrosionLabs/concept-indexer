@@ -109,6 +109,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Confirm processing",
     filesFound: "Files found",
     occurrencesFound: "Occurrences found",
+    largeMatchWarning: "There are more than 1,000 matches. Processing may take a while.",
+    processingFile: "Processing file",
     processingComplete: "Processing complete",
     filesModified: "Files modified",
     wikilinksCreated: "Wikilinks created",
@@ -233,6 +235,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Confirmar procesamiento",
     filesFound: "Archivos encontrados",
     occurrencesFound: "Apariciones encontradas",
+    largeMatchWarning: "Hay m\xE1s de 1.000 coincidencias. El procesamiento puede tardar.",
+    processingFile: "Procesando archivo",
     processingComplete: "Procesamiento completado",
     filesModified: "Archivos modificados",
     wikilinksCreated: "Wikilinks creados",
@@ -357,6 +361,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Confirmer le traitement",
     filesFound: "Fichiers trouv\xE9s",
     occurrencesFound: "Occurrences trouv\xE9es",
+    largeMatchWarning: "Plus de 1 000 correspondances ont \xE9t\xE9 trouv\xE9es. Le traitement peut prendre un certain temps.",
+    processingFile: "Fichier en cours de traitement",
     processingComplete: "Traitement termin\xE9",
     filesModified: "Fichiers modifi\xE9s",
     wikilinksCreated: "Wikilinks cr\xE9\xE9s",
@@ -481,6 +487,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Confirmar processamento",
     filesFound: "Arquivos encontrados",
     occurrencesFound: "Ocorr\xEAncias encontradas",
+    largeMatchWarning: "H\xE1 mais de 1.000 ocorr\xEAncias. O processamento pode demorar.",
+    processingFile: "Processando arquivo",
     processingComplete: "Processamento conclu\xEDdo",
     filesModified: "Arquivos modificados",
     wikilinksCreated: "Wikilinks criados",
@@ -605,6 +613,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Verarbeitung best\xE4tigen",
     filesFound: "Gefundene Dateien",
     occurrencesFound: "Gefundene Vorkommen",
+    largeMatchWarning: "Es gibt mehr als 1.000 Treffer. Die Verarbeitung kann einige Zeit dauern.",
+    processingFile: "Datei wird verarbeitet",
     processingComplete: "Verarbeitung abgeschlossen",
     filesModified: "Ge\xE4nderte Dateien",
     wikilinksCreated: "Erstellte Wikilinks",
@@ -729,6 +739,8 @@ var TRANSLATIONS = {
     confirmProcessing: "Potwierd\u017A przetwarzanie",
     filesFound: "Znalezione pliki",
     occurrencesFound: "Znalezione wyst\u0105pienia",
+    largeMatchWarning: "Znaleziono ponad 1 000 dopasowa\u0144. Przetwarzanie mo\u017Ce potrwa\u0107 d\u0142u\u017Cej.",
+    processingFile: "Przetwarzany plik",
     processingComplete: "Przetwarzanie zako\u0144czone",
     filesModified: "Zmodyfikowane pliki",
     wikilinksCreated: "Utworzone wikilinki",
@@ -853,6 +865,8 @@ var TRANSLATIONS = {
     confirmProcessing: "\u51E6\u7406\u3092\u78BA\u8A8D",
     filesFound: "\u898B\u3064\u304B\u3063\u305F\u30D5\u30A1\u30A4\u30EB",
     occurrencesFound: "\u898B\u3064\u304B\u3063\u305F\u51FA\u73FE\u7B87\u6240",
+    largeMatchWarning: "1,000\u4EF6\u3092\u8D85\u3048\u308B\u4E00\u81F4\u304C\u898B\u3064\u304B\u308A\u307E\u3057\u305F\u3002\u51E6\u7406\u306B\u6642\u9593\u304C\u304B\u304B\u308B\u5834\u5408\u304C\u3042\u308A\u307E\u3059\u3002",
+    processingFile: "\u51E6\u7406\u4E2D\u306E\u30D5\u30A1\u30A4\u30EB",
     processingComplete: "\u51E6\u7406\u304C\u5B8C\u4E86\u3057\u307E\u3057\u305F",
     filesModified: "\u5909\u66F4\u3055\u308C\u305F\u30D5\u30A1\u30A4\u30EB",
     wikilinksCreated: "\u4F5C\u6210\u3055\u308C\u305F Wikilink",
@@ -977,6 +991,8 @@ var TRANSLATIONS = {
     confirmProcessing: "\u786E\u8BA4\u5904\u7406",
     filesFound: "\u627E\u5230\u7684\u6587\u4EF6",
     occurrencesFound: "\u627E\u5230\u7684\u51FA\u73B0\u6B21\u6570",
+    largeMatchWarning: "\u5339\u914D\u6570\u91CF\u8D85\u8FC7 1,000 \u4E2A\uFF0C\u5904\u7406\u53EF\u80FD\u9700\u8981\u4E00\u4E9B\u65F6\u95F4\u3002",
+    processingFile: "\u6B63\u5728\u5904\u7406\u7684\u6587\u4EF6",
     processingComplete: "\u5904\u7406\u5B8C\u6210",
     filesModified: "\u5DF2\u4FEE\u6539\u6587\u4EF6",
     wikilinksCreated: "\u5DF2\u521B\u5EFA\u7684 Wikilink",
@@ -1073,6 +1089,11 @@ var ConfirmProcessModal = class extends import_obsidian.Modal {
     contentEl.createEl("p", {
       text: `${this.plugin.t("filesFound")}: ${totalFiles} \xB7 ${this.plugin.t("occurrencesFound")}: ${totalOccurrences}`
     });
+    if (totalOccurrences > 1e3) {
+      contentEl.createEl("p", {
+        text: this.plugin.t("largeMatchWarning")
+      });
+    }
     const optionsList = contentEl.createEl("ul");
     if (this.options.createLinks) {
       optionsList.createEl("li", {
@@ -1128,6 +1149,7 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
     this.progressPhase = "";
     this.progressCurrent = 0;
     this.progressTotal = 0;
+    this.progressFilePath = "";
     this.isSearching = false;
     this.searchPhase = "";
     this.searchCurrent = 0;
@@ -1136,6 +1158,7 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
     this.searchProgressBar = null;
     this.processingProgressLabel = null;
     this.processingProgressBar = null;
+    this.processingProgressFile = null;
     this.crossReferenceMode = false;
     this.crossSelectedPaths = /* @__PURE__ */ new Set();
     this.crossSelectedScope = "";
@@ -1511,6 +1534,7 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
     this.progressPhase = this.plugin.t("starting");
     this.progressCurrent = 0;
     this.progressTotal = 0;
+    this.progressFilePath = "";
     this.render();
     try {
       const summary = await this.plugin.processConcept(
@@ -1518,9 +1542,11 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
         this.groups,
         options,
         (progress) => {
+          var _a;
           this.progressPhase = progress.phase;
           this.progressCurrent = progress.current;
           this.progressTotal = progress.total;
+          this.progressFilePath = (_a = progress.filePath) != null ? _a : "";
           this.updateProcessingProgressDisplay();
         }
       );
@@ -1550,6 +1576,7 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       this.progressPhase = "";
       this.progressCurrent = 0;
       this.progressTotal = 0;
+      this.progressFilePath = "";
       this.render();
     }
   }
@@ -1571,6 +1598,10 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       this.processingProgressBar.max = Math.max(this.progressTotal, 1);
       this.processingProgressBar.value = this.progressCurrent;
       this.processingProgressBar.hidden = this.progressTotal <= 0;
+    }
+    if (this.processingProgressFile) {
+      this.processingProgressFile.textContent = this.progressFilePath ? `${this.plugin.t("processingFile")}: ${this.progressFilePath}` : "";
+      this.processingProgressFile.hidden = !this.progressFilePath;
     }
   }
   renderCrossReferenceScope(container) {
@@ -1723,6 +1754,7 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
     this.searchProgressBar = null;
     this.processingProgressLabel = null;
     this.processingProgressBar = null;
+    this.processingProgressFile = null;
     container.style.padding = "8px 10px";
     const header = container.createDiv();
     header.style.display = "flex";
@@ -2034,6 +2066,11 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       processingProgress.style.display = "block";
       processingProgress.style.marginTop = "4px";
       processingProgress.style.marginLeft = "-10px";
+      this.processingProgressFile = box.createDiv();
+      this.processingProgressFile.style.marginTop = "4px";
+      this.processingProgressFile.style.overflow = "hidden";
+      this.processingProgressFile.style.textOverflow = "ellipsis";
+      this.processingProgressFile.style.whiteSpace = "nowrap";
       this.updateProcessingProgressDisplay();
     }
     if (this.groups.length > 0) {
@@ -3524,7 +3561,8 @@ ${blockLines.join("\n") || "_None._"}
           target.group,
           target.path,
           options.masterUpdateMode,
-          changeLog
+          changeLog,
+          (progress) => onProgress == null ? void 0 : onProgress(progress)
         );
         if (status === "created") {
           summary.masterPagesCreated++;
@@ -4032,7 +4070,7 @@ ${lines.join("\n") || "_No concepts indexed._"}
       }]
     };
   }
-  async createOrUpdateMasterPage(concept, group, masterPath, updateMode, changeLog) {
+  async createOrUpdateMasterPage(concept, group, masterPath, updateMode, changeLog, onProgress) {
     const folderPath = masterPath.substring(
       0,
       masterPath.lastIndexOf("/")
@@ -4043,10 +4081,25 @@ ${lines.join("\n") || "_No concepts indexed._"}
       group.folders
     );
     const sections = [];
+    const sourceResults = freshResults.filter(
+      (result) => result.file.path !== masterPath && !this.isMasterPage(result.file.path)
+    );
+    let sourceCurrent = 0;
+    onProgress == null ? void 0 : onProgress({
+      phase: "Updating master pages...",
+      current: 0,
+      total: sourceResults.length
+    });
     for (const result of freshResults) {
       if (result.file.path === masterPath || this.isMasterPage(result.file.path)) {
         continue;
       }
+      onProgress == null ? void 0 : onProgress({
+        phase: "Updating master pages...",
+        current: sourceCurrent + 1,
+        total: sourceResults.length,
+        filePath: result.file.path
+      });
       const references = await this.ensureReferenceTargets(
         result.file,
         concept,
@@ -4075,6 +4128,13 @@ ${lines.join("\n") || "_No concepts indexed._"}
       sections.push(
         sectionLines.join("\n")
       );
+      sourceCurrent++;
+      onProgress == null ? void 0 : onProgress({
+        phase: "Updating master pages...",
+        current: sourceCurrent,
+        total: sourceResults.length,
+        filePath: result.file.path
+      });
     }
     const existing = this.app.vault.getAbstractFileByPath(
       masterPath
