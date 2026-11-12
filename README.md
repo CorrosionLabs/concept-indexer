@@ -8,6 +8,17 @@ Mechanical concept indexer for Obsidian.
 
 Concept Indexer searches for a concept across your Markdown vault, creates wikilinks, generates master pages with contextual references, and maintains a global concept index.
 
+## What's New in v2.1.0
+
+### Search Scope
+
+- The search scope panel collapses automatically when **Search** is clicked, while preserving the selected folders.
+
+### Index Destination
+
+- Master pages are always saved in the configured master pages folder, regardless of which folders are searched.
+- Searching within a folder no longer creates an additional index destination folder inside that source folder.
+
 ## What's New in v2.0
 
 Concept Indexer v2.0 introduces cross-reference analysis, safer document processing, and a complete maintenance system for managing changes to your Obsidian vault.
@@ -23,7 +34,7 @@ Concept Indexer v2.0 introduces cross-reference analysis, safer document process
 
 - Choose between **Expand** and **Synchronize** modes when updating master pages.
 - Process multiple folders together or independently.
-- Create and maintain separate master pages and global indexes for different scopes.
+- Create and maintain master pages and a global index in the configured destination folder.
 - Preserve protected Markdown content, including code blocks and existing links.
 
 ### Change Tracking and Safe Cleanup
@@ -145,7 +156,7 @@ Default master folder:
 Concept Indexer/
 ```
 
-Both can be changed in the plugin settings.
+Both can be changed in the plugin settings. The master pages folder is used regardless of the selected search scope.
 
 ## AI-friendly workflow
 
