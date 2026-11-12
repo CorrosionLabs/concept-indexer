@@ -1,7 +1,7 @@
 {
   "id": "concept-indexer",
   "name": "Concept Indexer",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "minAppVersion": "1.7.2",
   "description": "Automatically finds occurrences of selected concepts across your vault and creates wikilinks and concept pages.",
   "author": "Corrosion Labs",
