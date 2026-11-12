@@ -8,3 +8,23 @@
 	padding: 0.1em 0.35em;
 	white-space: nowrap;
 }
+
+.concept-indexer-master-page-name {
+	border-color: var(--interactive-accent) !important;
+	box-shadow: 0 0 0 1px var(--interactive-accent-hover);
+	font-weight: 600;
+}
+
+.concept-indexer-master-page-setting {
+	align-items: stretch;
+	flex-direction: column;
+}
+
+.concept-indexer-master-page-setting .setting-item-info,
+.concept-indexer-master-page-setting .setting-item-control {
+	width: 100%;
+}
+
+.concept-indexer-master-page-setting .setting-item-control input {
+	width: 100%;
+}

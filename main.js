@@ -107,6 +107,9 @@ var TRANSLATIONS = {
     cancel: "Cancel",
     confirm: "Process",
     confirmProcessing: "Confirm processing",
+    masterPageName: "Master page name",
+    masterPageNameDesc: "Name used to create or update the master page.",
+    masterPageNameRequired: "Enter a name for the master page.",
     filesFound: "Files found",
     occurrencesFound: "Occurrences found",
     largeMatchWarning: "There are more than 1,000 matches. Processing may take a while.",
@@ -233,6 +236,9 @@ var TRANSLATIONS = {
     cancel: "Cancelar",
     confirm: "Procesar",
     confirmProcessing: "Confirmar procesamiento",
+    masterPageName: "Nombre de la p\xE1gina maestra",
+    masterPageNameDesc: "Nombre usado para crear o actualizar la p\xE1gina maestra.",
+    masterPageNameRequired: "Indica un nombre para la p\xE1gina maestra.",
     filesFound: "Archivos encontrados",
     occurrencesFound: "Apariciones encontradas",
     largeMatchWarning: "Hay m\xE1s de 1.000 coincidencias. El procesamiento puede tardar.",
@@ -359,6 +365,9 @@ var TRANSLATIONS = {
     cancel: "Annuler",
     confirm: "Traiter",
     confirmProcessing: "Confirmer le traitement",
+    masterPageName: "Nom de la page ma\xEEtresse",
+    masterPageNameDesc: "Nom utilis\xE9 pour cr\xE9er ou mettre \xE0 jour la page ma\xEEtresse.",
+    masterPageNameRequired: "Saisissez un nom pour la page ma\xEEtresse.",
     filesFound: "Fichiers trouv\xE9s",
     occurrencesFound: "Occurrences trouv\xE9es",
     largeMatchWarning: "Plus de 1 000 correspondances ont \xE9t\xE9 trouv\xE9es. Le traitement peut prendre un certain temps.",
@@ -485,6 +494,9 @@ var TRANSLATIONS = {
     cancel: "Cancelar",
     confirm: "Processar",
     confirmProcessing: "Confirmar processamento",
+    masterPageName: "Nome da p\xE1gina mestra",
+    masterPageNameDesc: "Nome usado para criar ou atualizar a p\xE1gina mestra.",
+    masterPageNameRequired: "Insira um nome para a p\xE1gina mestra.",
     filesFound: "Arquivos encontrados",
     occurrencesFound: "Ocorr\xEAncias encontradas",
     largeMatchWarning: "H\xE1 mais de 1.000 ocorr\xEAncias. O processamento pode demorar.",
@@ -611,6 +623,9 @@ var TRANSLATIONS = {
     cancel: "Abbrechen",
     confirm: "Verarbeiten",
     confirmProcessing: "Verarbeitung best\xE4tigen",
+    masterPageName: "Name der Masterseite",
+    masterPageNameDesc: "Name zum Erstellen oder Aktualisieren der Masterseite.",
+    masterPageNameRequired: "Geben Sie einen Namen f\xFCr die Masterseite ein.",
     filesFound: "Gefundene Dateien",
     occurrencesFound: "Gefundene Vorkommen",
     largeMatchWarning: "Es gibt mehr als 1.000 Treffer. Die Verarbeitung kann einige Zeit dauern.",
@@ -737,6 +752,9 @@ var TRANSLATIONS = {
     cancel: "Anuluj",
     confirm: "Przetw\xF3rz",
     confirmProcessing: "Potwierd\u017A przetwarzanie",
+    masterPageName: "Nazwa strony g\u0142\xF3wnej",
+    masterPageNameDesc: "Nazwa u\u017Cywana do utworzenia lub aktualizacji strony g\u0142\xF3wnej.",
+    masterPageNameRequired: "Wprowad\u017A nazw\u0119 strony g\u0142\xF3wnej.",
     filesFound: "Znalezione pliki",
     occurrencesFound: "Znalezione wyst\u0105pienia",
     largeMatchWarning: "Znaleziono ponad 1 000 dopasowa\u0144. Przetwarzanie mo\u017Ce potrwa\u0107 d\u0142u\u017Cej.",
@@ -863,6 +881,9 @@ var TRANSLATIONS = {
     cancel: "\u30AD\u30E3\u30F3\u30BB\u30EB",
     confirm: "\u51E6\u7406",
     confirmProcessing: "\u51E6\u7406\u3092\u78BA\u8A8D",
+    masterPageName: "\u30DE\u30B9\u30BF\u30FC\u30DA\u30FC\u30B8\u540D",
+    masterPageNameDesc: "\u30DE\u30B9\u30BF\u30FC\u30DA\u30FC\u30B8\u306E\u4F5C\u6210\u307E\u305F\u306F\u66F4\u65B0\u306B\u4F7F\u7528\u3059\u308B\u540D\u524D\u3067\u3059\u3002",
+    masterPageNameRequired: "\u30DE\u30B9\u30BF\u30FC\u30DA\u30FC\u30B8\u540D\u3092\u5165\u529B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
     filesFound: "\u898B\u3064\u304B\u3063\u305F\u30D5\u30A1\u30A4\u30EB",
     occurrencesFound: "\u898B\u3064\u304B\u3063\u305F\u51FA\u73FE\u7B87\u6240",
     largeMatchWarning: "1,000\u4EF6\u3092\u8D85\u3048\u308B\u4E00\u81F4\u304C\u898B\u3064\u304B\u308A\u307E\u3057\u305F\u3002\u51E6\u7406\u306B\u6642\u9593\u304C\u304B\u304B\u308B\u5834\u5408\u304C\u3042\u308A\u307E\u3059\u3002",
@@ -989,6 +1010,9 @@ var TRANSLATIONS = {
     cancel: "\u53D6\u6D88",
     confirm: "\u5904\u7406",
     confirmProcessing: "\u786E\u8BA4\u5904\u7406",
+    masterPageName: "\u4E3B\u9875\u9762\u540D\u79F0",
+    masterPageNameDesc: "\u7528\u4E8E\u521B\u5EFA\u6216\u66F4\u65B0\u4E3B\u9875\u9762\u7684\u540D\u79F0\u3002",
+    masterPageNameRequired: "\u8BF7\u8F93\u5165\u4E3B\u9875\u9762\u540D\u79F0\u3002",
     filesFound: "\u627E\u5230\u7684\u6587\u4EF6",
     occurrencesFound: "\u627E\u5230\u7684\u51FA\u73B0\u6B21\u6570",
     largeMatchWarning: "\u5339\u914D\u6570\u91CF\u8D85\u8FC7 1,000 \u4E2A\uFF0C\u5904\u7406\u53EF\u80FD\u9700\u8981\u4E00\u4E9B\u65F6\u95F4\u3002",
@@ -1065,6 +1089,41 @@ var ConfirmProcessModal = class extends import_obsidian.Modal {
     this.groups = groups;
     this.options = options;
     this.onConfirm = onConfirm;
+    this.masterPageName = this.getSuggestedMasterName();
+  }
+  getSuggestedMasterName() {
+    const relativeFolders = Array.from(
+      new Set(
+        this.groups.flatMap(
+          (group) => {
+            var _a;
+            return ((_a = group.folders) != null ? _a : []).map(
+              (folder) => this.toVaultRelativePath(folder)
+            );
+          }
+        )
+      )
+    ).filter((folder) => folder.length > 0);
+    const folderPart = relativeFolders.length > 0 ? relativeFolders.join(" + ") : "General";
+    return this.toValidFileName(
+      `${this.concept} - ${folderPart}`
+    );
+  }
+  toVaultRelativePath(path) {
+    var _a, _b;
+    const normalizedPath = path.replace(/\\/g, "/");
+    const adapter = this.plugin.app.vault.adapter;
+    const vaultRoot = ((_b = (_a = adapter.getBasePath) == null ? void 0 : _a.call(adapter)) != null ? _b : "").replace(/\\/g, "/").replace(/\/+$/, "");
+    const rootPrefix = `${vaultRoot}/`;
+    if (normalizedPath.toLowerCase().startsWith(
+      rootPrefix.toLowerCase()
+    )) {
+      return normalizedPath.slice(rootPrefix.length);
+    }
+    return normalizedPath.replace(/^\/+/, "").replace(/^[A-Za-z]:\//, "");
+  }
+  toValidFileName(value) {
+    return value.replace(/[\\/:*?"<>|]/g, "-").replace(/\s+/g, " ").trim();
   }
   onOpen() {
     const { contentEl } = this;
@@ -1101,6 +1160,17 @@ var ConfirmProcessModal = class extends import_obsidian.Modal {
       });
     }
     if (this.options.createMaster) {
+      const masterPageNameSetting = new import_obsidian.Setting(contentEl);
+      masterPageNameSetting.settingEl.addClass(
+        "concept-indexer-master-page-setting"
+      );
+      masterPageNameSetting.setName(this.plugin.t("masterPageName")).setDesc(this.plugin.t("masterPageNameDesc")).addText((text) => {
+        text.setValue(this.masterPageName).onChange((value) => {
+          this.masterPageName = value;
+        });
+        text.inputEl.addClass("concept-indexer-master-page-name");
+        text.inputEl.select();
+      });
       optionsList.createEl("li", {
         text: this.plugin.t("createMaster")
       });
@@ -1122,8 +1192,15 @@ var ConfirmProcessModal = class extends import_obsidian.Modal {
       button.setButtonText(this.plugin.t("cancel")).onClick(() => this.close());
     }).addButton((button) => {
       button.setButtonText(this.plugin.t("confirm")).setCta().onClick(() => {
+        const masterPageName = this.masterPageName.trim();
+        if (this.options.createMaster && !masterPageName) {
+          new import_obsidian.Notice(
+            this.plugin.t("masterPageNameRequired")
+          );
+          return;
+        }
         this.close();
-        this.onConfirm();
+        this.onConfirm(masterPageName);
       });
     });
   }
@@ -1136,6 +1213,7 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
     var _a;
     super(leaf);
     this.concept = "";
+    this.masterPageName = "";
     this.scopeAll = true;
     this.selectedFolders = /* @__PURE__ */ new Set();
     this.processingMode = "together";
@@ -1524,12 +1602,13 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
       this.concept,
       this.groups,
       options,
-      () => {
-        void this.runProcessing(options);
+      (masterPageName) => {
+        void this.runProcessing(options, masterPageName);
       }
     ).open();
   }
-  async runProcessing(options) {
+  async runProcessing(options, masterPageName) {
+    this.masterPageName = masterPageName;
     this.isProcessing = true;
     this.progressPhase = this.plugin.t("starting");
     this.progressCurrent = 0;
@@ -1541,6 +1620,7 @@ var ConceptIndexerView = class extends import_obsidian.ItemView {
         this.concept,
         this.groups,
         options,
+        masterPageName,
         (progress) => {
           var _a;
           this.progressPhase = progress.phase;
@@ -1772,16 +1852,6 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
     logo.style.minWidth = "0";
     logo.style.width = "100%";
     logo.style.height = "auto";
-    const settingsButton = header.createEl("button", {
-      attr: {
-        "aria-label": this.plugin.t("settingsTitle")
-      }
-    });
-    settingsButton.title = this.plugin.t("settingsTitle");
-    (0, import_obsidian.setIcon)(settingsButton, "settings");
-    settingsButton.addEventListener("click", () => {
-      this.plugin.openSettings();
-    });
     const modeRow = container.createDiv();
     modeRow.style.display = "flex";
     modeRow.style.gap = "8px";
@@ -1809,6 +1879,17 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
       if (!this.crossReferenceMode) {
         this.toggleCrossReferenceMode();
       }
+    });
+    const settingsButton = modeRow.createEl("button", {
+      attr: {
+        "aria-label": this.plugin.t("settingsTitle")
+      }
+    });
+    settingsButton.title = this.plugin.t("settingsTitle");
+    settingsButton.style.flex = "0 0 auto";
+    (0, import_obsidian.setIcon)(settingsButton, "settings");
+    settingsButton.addEventListener("click", () => {
+      this.plugin.openSettings();
     });
     if (this.crossReferenceMode) {
       this.renderCrossReferenceScope(container);
@@ -1862,6 +1943,8 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
     searchButton.addClass("mod-cta");
     searchButton.disabled = this.isSearching || this.isProcessing;
     searchButton.addEventListener("click", () => {
+      this.scopeCollapsed = true;
+      this.persistUiState();
       void this.runSearchFromView(
         conceptInput
       );
@@ -2105,7 +2188,8 @@ ${this.plugin.t("globalIndexesUpdated")}: ${summary.globalIndexesUpdated}`,
         () => {
           void this.plugin.openCurrentMasterPage(
             this.concept,
-            this.groups
+            this.groups,
+            this.masterPageName
           );
         }
       );
@@ -3425,7 +3509,7 @@ ${blockLines.join("\n") || "_None._"}
     );
     return results;
   }
-  async processConcept(concept, groups, options, onProgress) {
+  async processConcept(concept, groups, options, masterPageName, onProgress) {
     var _a, _b;
     const summary = {
       filesModified: 0,
@@ -3442,10 +3526,11 @@ ${blockLines.join("\n") || "_None._"}
     const changeLog = await this.readChangeLog();
     const hashtag = this.normalizeHashtag(concept);
     const masterTargets = /* @__PURE__ */ new Map();
+    const effectiveMasterPageName = options.createMaster ? masterPageName : concept;
     for (const group of groups) {
       if (options.createMaster) {
         const masterPath = this.getMasterPagePath(
-          concept,
+          effectiveMasterPageName,
           group,
           groups.length
         );
@@ -3467,7 +3552,7 @@ ${blockLines.join("\n") || "_None._"}
     });
     for (const group of groups) {
       const masterPath = (_b = (_a = masterTargets.get(group.name)) == null ? void 0 : _a.path) != null ? _b : this.getMasterPagePath(
-        concept,
+        effectiveMasterPageName,
         group,
         groups.length
       );
@@ -3668,7 +3753,7 @@ ${lines.join("\n") || "_No concepts indexed._"}
     );
     return "created";
   }
-  async openCurrentMasterPage(concept, groups) {
+  async openCurrentMasterPage(concept, groups, masterPageName = concept) {
     if (!concept || groups.length === 0) {
       new import_obsidian.Notice(this.t("searchFirst"));
       return;
@@ -3680,7 +3765,7 @@ ${lines.join("\n") || "_No concepts indexed._"}
       return;
     }
     const masterPath = this.getMasterPagePath(
-      concept,
+      masterPageName,
       groups[0],
       groups.length
     );
@@ -3729,15 +3814,6 @@ ${lines.join("\n") || "_No concepts indexed._"}
   }
   getMasterPagePath(concept, group, totalGroups) {
     const safeName = this.sanitizeFileName(concept);
-    if (group.folders === null) {
-      return `${this.getMasterFolderName()}/${safeName}.md`;
-    }
-    if (totalGroups > 1 && group.folders.length === 1) {
-      return `${group.folders[0]}/${this.getMasterFolderName()}/${safeName}.md`;
-    }
-    if (group.folders.length === 1) {
-      return `${group.folders[0]}/${this.getMasterFolderName()}/${safeName}.md`;
-    }
     return `${this.getMasterFolderName()}/${safeName}.md`;
   }
   makeWikilinkTarget(masterPath, displayText) {
